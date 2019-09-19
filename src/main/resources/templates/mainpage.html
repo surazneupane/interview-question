@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <style>
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            position: relative;
+        }
+
+        .button-holder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        label {
+
+            padding-right: 100px;
+            color: red;
+        }
+        button {
+            background: #6495ED;
+            color: white;
+            padding: 16px 25px;
+            margin: 15px auto;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 8px;
+            display: block;
+        }
+
+        a{
+
+            text-decoration: none;
+        }
+
+        .search-popup {
+            display: none;
+            position: absolute;
+            bottom: 0;
+            right: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+
+
+
+        .form-container {
+            max-width: 300px;
+            padding: 10px;
+            background-color: silver;
+        }
+
+
+        .form-container .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            opacity: 0.8;
+
+        }
+
+        .form-container .cancel {
+            background-color: red;
+        }
+
+        .form-container .btn:hover {
+            opacity: 1;
+        }
+
+
+
+    </style>
+
+<script>
+    function openSearchForm() {
+
+        document.getElementById("search").style.display = "block";
+
+    }
+
+    function closeSearchForm() {
+        document.getElementById("search").style.display = "none";
+    }
+    function openSearch1Form()
+    {
+        document.getElementById("search1").style.display = "block";
+
+
+    }
+    function closeSearch1Form() {
+        document.getElementById("search1").style.display = "none";
+    }
+
+
+</script>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+</head>
+<body>
+<div class="button-holder">
+    <a href="/listPersonUS"> <button  style="width:auto">Show People Form United States</button></a>
+     <button onclick="openSearchForm()" style="width:auto">Filter Result  Qualified Or Not</button>
+   <button  onclick="openSearch1Form()" style="width:auto">Filter Result Scanned By Field</button>
+</div>
+
+
+
+
+<div class="search-popup " id="search">
+    <form th:action="@{/filter}"  class="form-container">
+        <h1>Search</h1>
+        <select th:name="status">
+            <option th:value="qualified" >Qualfied</option>
+            <option th:value="disqualified" >Dis Qualified</option>
+        </select>
+
+
+        <button type="submit" class="btn submit">Filter</button>
+        <button class="btn cancel" onclick="closeSearchForm()">Close</button>
+    </form>
+</div>
+
+
+
+
+<div class="search-popup " id="search1">
+    <form th:action="@{/search}"  class="form-container">
+        <h1>Search</h1>
+        <select th:name="name">
+            <option th:value="${'Pam Fink'}">Pam Fink</option>
+            <option th:value="${'Amanda Delong'}" >Amanda Delong</option>
+            <option th:value="${'Roger Williams'}" >Roger Williams</option>
+            <option th:value="${'James Finnegan'}" >James Finnegan</option>
+            <option th:value="${'Laura Jordan'}" >Laura Jordan</option>
+            <option th:value="${'Chris Knepper'}" >Chris Knepper</option>
+            <option th:value="${'Adrienne Doyle'}" >Adrienne Doyle</option>
+            <option th:value="${'Bjarne Aarup'}" >Bjarne Aarupe</option>
+            <option th:value="${'Kevin Block'}" >Kevin Block</option>
+        </select>
+
+
+        <button type="submit" class="btn submit">Filter</button>
+        <button class="btn cancel" onclick="closeSearch1Form()">Close</button>
+    </form>
+</div>
+
+
+</body>
+</html>
+

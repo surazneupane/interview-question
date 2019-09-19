@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>Your Search Query</title>
+
+    <style>
+
+     </style>
+</head>
+<body>
+
+<h4 align="center" style="background-color: snow">Filtered Results</h4>
+<p align="center" style="size: 20px; background-color: silver;">
+    Total Records::::
+    <span th:text="${size}"></span>
+
+</p>
+<table class="table table-bordered table-striped">
+    <tr>
+<th>S.N</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Middle Name</th>
+        <th>Email</th>
+        <th>Email 2</th>
+        <th>Company</th>
+        <th>Job Title</th>
+        <th>Address 1</th>
+        <th>Address 2</th>
+        <th>City</th>
+        <th>State Id</th>
+        <th>Zip Code</th>
+        <th>Country Id</th>
+        <th>Phone Number</th>
+        <th>Question</th>
+        <th>Note</th>
+        <th>Status</th>
+        <th>Scanned By</th>
+
+
+    </tr>
+
+    <tr th:each="data,iterator: ${Data}">
+<td th:text="${iterator.index+1}"></td>
+        <td th:text="${data.personGeneralInformation.firstName}"></td>
+        <td th:text="${data.personGeneralInformation.lastName}"></td>
+        <td th:text="${data.personGeneralInformation.middleInitial}"></td>
+        <td th:text="${data.personGeneralInformation.email}"></td>
+        <td th:text="${data.personGeneralInformation.email2}"></td>
+        <td th:text="${data.company}"></td>
+        <td th:text="${data.jobTitle}"></td>
+        <td th:text="${data.address1}"></td>
+        <td th:text="${data.address2}"></td>
+        <td th:text="${data.city}"></td>
+        <td th:text="${data.stateId}"></td>
+        <td th:text="${data.zipCode}"></td>
+        <td th:text="${data.countryId}"></td>
+        <td th:text="${data.phoneNumber}"></td>
+        <td th:text="${data.questions}"></td>
+        <td th:text="${data.note}"></td>
+        <td th:text="${data.qualified}"></td>
+        <td th:text="${data.scannedBy}"></td>
+    </tr>
+
+
+
+</table>
+</body>
+</html>
